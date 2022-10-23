@@ -30,8 +30,8 @@
  */
 
 
-#ifndef GRASP_DETECTION_SERVER_H_
-#define GRASP_DETECTION_SERVER_H_
+#ifndef GRASP_DETECTION_SERVER_SAMPLES_H_
+#define GRASP_DETECTION_SERVER_SAMPLES_H_
 
 
 // ROS
@@ -47,7 +47,7 @@
 #include <gpd/grasp_detector.h>
 
 // this project (services)
-#include <gpd_ros/detect_grasps.h>
+#include <gpd_ros/detect_grasps_samples.h>
 
 // this project (messages)
 #include <gpd_ros/GraspConfig.h>
@@ -85,13 +85,12 @@ public:
    * \param req the service request
    * \param res the service response
    */
-  bool detectGrasps(gpd_ros::detect_grasps::Request& req, gpd_ros::detect_grasps::Response& res);
+  bool detectGrasps(gpd_ros::detect_grasps_samples::Request& req, gpd_ros::detect_grasps_samples::Response& res);
 
 
 private:
 
   ros::Publisher grasps_pub_; ///< ROS publisher for grasp list messages
-  ros::Publisher pc_pub_1_;
 
   std_msgs::Header cloud_camera_header_; ///< stores header of the point cloud
   std::string frame_; ///< point cloud frame
@@ -105,4 +104,4 @@ private:
   Eigen::Vector3d view_point_; ///< (input) view point of the camera onto the point cloud
 };
 
-#endif /* GRASP_DETECTION_SERVER_H_ */
+#endif /* GRASP_DETECTION_SERVER_SAMPLES_H_ */
